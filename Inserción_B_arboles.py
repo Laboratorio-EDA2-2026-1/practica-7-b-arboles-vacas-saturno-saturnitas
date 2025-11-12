@@ -1,5 +1,7 @@
 # Implementa aquí todos los procesos necesarios para la operación de inserción. 
 # Pueden modificar la extensión del documento para que se ajuste al lenguaje de su elección y comentar estas instrucciones.
+
+# Clase para representar un nodo de un B-árbol
 class BTreeNode:
     def __init__(self, t, leaf=False):
         self.t = t                   # Grado mínimo (mínimo número de claves)
