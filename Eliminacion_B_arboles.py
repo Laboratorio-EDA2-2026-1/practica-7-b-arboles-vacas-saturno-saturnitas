@@ -218,10 +218,62 @@ if __name__ == "__main__":
     btree.remove(17)
     btree.print_tree()
 
+    print("\nEliminando 20...")
+    btree.remove(20)
+    btree.print_tree()
+
+
 '''
 Partimos del árbol resultante de la inserción:
             [10, 20]
            /    |     \
    [5,6,7]   [12,17]   [30]
 
+Paso 1: Eliminar 6
+La clave 6 está en el hijo izquierdo [5,6,7], que es una hoja.
+En este caso, la eliminación es directa, simplemente se quita el valor del nodo.
+            [10, 20]
+           /    |     \
+      [5,7]   [12,17]   [30]
+
+Paso 2: Eliminar 13
+uscamos la clave 13.
+No está en la raíz [10,20].
+Tampoco está en el subárbol central [12,17].
+No existe en el árbol, así que no se hace ningún cambio.
+            [10, 20]
+           /    |     \
+      [5,7]   [12,17]   [30]
+
+Paso 3: Eliminar 7
+La clave 7 está en [5,7], que es una hoja.
+Se elimina directamente.
+
+Ahora ese nodo queda con solo una clave [5], pero como aún tiene al menos t−1 = 1 clave, no hay problema.
+            [10, 20]
+           /    |     \
+        [5]   [12,17]   [30]
+
+Paso 4: Eliminar 17
+La clave 17 está en el nodo [12,17], que también es hoja.
+Así que se elimina directamente.
+
+El nodo queda con una sola clave [12], que ya vimos que no hay problema.
+            [10, 20]
+           /    |     \
+        [5]    [12]    [30]
+
+Paso 5: Eliminar 20
+La clave 20 está en la raíz, que no es hoja, así que aplicamos la regla:
+
+Si el hijo derecho ([30]) tiene al menos t = 2 claves, tomamos su sucesor;
+si no, tomamos el predecesor o fusionamos.
+
+Aquí, [30] tiene solo una clave, así que no podemos tomar prestado.
+Lo mismo con el hijo central [12].
+
+Por lo tanto, fusionamos el hijo central y derecho junto con la clave 20.
+           [10]
+          /    \
+       [5]   [12,30]
 '''
