@@ -4,10 +4,10 @@
 # Clase para representar un nodo de un B-árbol
 class BTreeNode:
     def __init__(self, t, leaf=False):
-        self.t = t
-        self.leaf = leaf
-        self.keys = []
-        self.children = []
+        self.t = t                   # Grado mínimo (mínimo número de claves)
+        self.leaf = leaf             # Indica si es hoja
+        self.keys = []               # Lista de claves
+        self.children = []           # Lista de hijos
 
     # INSERCIÓN
     def insert_non_full(self, key):
